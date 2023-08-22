@@ -11,6 +11,8 @@ function sendDataCalliope () {
     radio.sendNumber(WeatherWinddirection)
     radio.setGroup(WeatherWindspeedChannel)
     radio.sendNumber(WeatherWindspeed)
+    radio.setGroup(weatherGustspeedChannel)
+    radio.sendNumber(weatherGustspeed)
     radio.setGroup(DataSlot0Channel)
     radio.sendNumber(DataSlot0)
     radio.setGroup(DataSlot1Channel)
@@ -74,6 +76,8 @@ function sendDataRaspi () {
     serial.writeLine("weatherWinddirectionChannel#" + WeatherWinddirectionChannel)
     serial.writeLine("weatherWindspeed#" + WeatherWindspeed)
     serial.writeLine("weatherWindspeedChannel#" + WeatherWindspeedChannel)
+    serial.writeLine("weatherGustspeed#" + weatherGustspeed)
+    serial.writeLine("weatherGustspeedChannel#" + weatherGustspeedChannel)
     serial.writeLine("dataSlot0#" + DataSlot0)
     serial.writeLine("dataSlot0Channel#" + DataSlot0Channel)
     serial.writeLine("dataSlot1#" + DataSlot1)
@@ -115,31 +119,33 @@ function storeData () {
     WeatherWinddirectionChannel = parseFloat(list[9])
     WeatherWindspeed = parseFloat(list[10])
     WeatherWindspeedChannel = parseFloat(list[11])
-    DataSlot0 = parseFloat(list[12])
-    DataSlot0Channel = parseFloat(list[13])
-    DataSlot1 = parseFloat(list[14])
-    DataSlot1Channel = parseFloat(list[15])
-    DataSlot2 = parseFloat(list[16])
-    DataSlot2Channel = parseFloat(list[17])
-    DataSlot3 = parseFloat(list[18])
-    DataSlot3Channel = parseFloat(list[19])
-    DataSlot4 = parseFloat(list[20])
-    DataSlot4Channel = parseFloat(list[21])
-    DataSlot5 = parseFloat(list[22])
-    DataSlot5Channel = parseFloat(list[23])
-    DataSlot6 = parseFloat(list[24])
-    DataSlot6Channel = parseFloat(list[25])
-    DataSlot7 = parseFloat(list[26])
-    DataSlot7Channel = parseFloat(list[27])
-    DataSlot8 = parseFloat(list[28])
-    DataSlot8Channel = parseFloat(list[29])
-    DataSlot9 = parseFloat(list[30])
-    DataSlot9Channel = parseFloat(list[31])
-    dataPicker = list[32]
-    dataPickerChannel = parseFloat(list[33])
-    status = parseFloat(list[34])
-    CalliLED = parseFloat(list[35])
-    CalliDisplay = parseFloat(list[36])
+    weatherGustspeed = parseFloat(list[12])
+    weatherGustspeedChannel = parseFloat(list[13])
+    DataSlot0 = parseFloat(list[14])
+    DataSlot0Channel = parseFloat(list[15])
+    DataSlot1 = parseFloat(list[16])
+    DataSlot1Channel = parseFloat(list[17])
+    DataSlot2 = parseFloat(list[18])
+    DataSlot2Channel = parseFloat(list[19])
+    DataSlot3 = parseFloat(list[20])
+    DataSlot3Channel = parseFloat(list[21])
+    DataSlot4 = parseFloat(list[22])
+    DataSlot4Channel = parseFloat(list[23])
+    DataSlot5 = parseFloat(list[24])
+    DataSlot5Channel = parseFloat(list[25])
+    DataSlot6 = parseFloat(list[26])
+    DataSlot6Channel = parseFloat(list[27])
+    DataSlot7 = parseFloat(list[28])
+    DataSlot7Channel = parseFloat(list[29])
+    DataSlot8 = parseFloat(list[30])
+    DataSlot8Channel = parseFloat(list[31])
+    DataSlot9 = parseFloat(list[32])
+    DataSlot9Channel = parseFloat(list[33])
+    dataPicker = list[34]
+    dataPickerChannel = parseFloat(list[35])
+    status = parseFloat(list[36])
+    CalliLED = parseFloat(list[37])
+    CalliDisplay = parseFloat(list[38])
 }
 let list: string[] = []
 let CalliDisplay = 0
@@ -168,6 +174,8 @@ let DataSlot1 = 0
 let DataSlot1Channel = 0
 let DataSlot0 = 0
 let DataSlot0Channel = 0
+let weatherGustspeed = 0
+let weatherGustspeedChannel = 0
 let WeatherWindspeed = 0
 let WeatherWindspeedChannel = 0
 let WeatherWinddirection = 0
