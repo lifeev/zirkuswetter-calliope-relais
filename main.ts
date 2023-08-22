@@ -8,7 +8,7 @@ function sendDataCalliope () {
     radio.setGroup(WeatherTempChannel)
     radio.sendNumber(WeatherTemp)
     radio.setGroup(WeatherWinddirectionChannel)
-    radio.sendNumber(WeatherWinddirection)
+    radio.sendString("" + (WeatherWinddirection))
     radio.setGroup(WeatherWindspeedChannel)
     radio.sendNumber(WeatherWindspeed)
     radio.setGroup(weatherGustspeedChannel)
@@ -115,7 +115,7 @@ function storeData () {
     WeatherRainChannel = parseFloat(list[5])
     WeatherTemp = parseFloat(list[6])
     WeatherTempChannel = parseFloat(list[7])
-    WeatherWinddirection = parseFloat(list[8])
+    WeatherWinddirection = list[8]
     WeatherWinddirectionChannel = parseFloat(list[9])
     WeatherWindspeed = parseFloat(list[10])
     WeatherWindspeedChannel = parseFloat(list[11])
@@ -178,7 +178,7 @@ let weatherGustspeed = 0
 let weatherGustspeedChannel = 0
 let WeatherWindspeed = 0
 let WeatherWindspeedChannel = 0
-let WeatherWinddirection = 0
+let WeatherWinddirection = ""
 let WeatherWinddirectionChannel = 0
 let WeatherTemp = 0
 let WeatherTempChannel = 0
