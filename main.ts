@@ -31,6 +31,8 @@ function sendDataCalliope () {
     radio.sendNumber(DataSlot8)
     radio.setGroup(DataSlot9Channel)
     radio.sendNumber(DataSlot9)
+    radio.setGroup(dataPickerChannel)
+    radio.sendString("" + (dataPicker))
 }
 input.onButtonEvent(Button.A, input.buttonEventClick(), function () {
     serial.writeLine("calliButtonA")
@@ -92,6 +94,8 @@ function sendDataRaspi () {
     serial.writeLine("dataSlot8Channel#" + DataSlot8Channel)
     serial.writeLine("dataSlot9#" + DataSlot9)
     serial.writeLine("dataSlot9Channel#" + DataSlot9Channel)
+    serial.writeLine("dataPicker" + dataPicker)
+    serial.writeLine("dataPickerChannel" + dataPickerChannel)
     serial.writeLine("status#" + status)
     serial.writeLine("calliLED#" + CalliLED)
     serial.writeLine("calliDisplay#" + CalliDisplay)
@@ -131,15 +135,19 @@ function storeData () {
     DataSlot8Channel = parseFloat(list[29])
     DataSlot9 = parseFloat(list[30])
     DataSlot9Channel = parseFloat(list[31])
-    status = parseFloat(list[32])
-    CalliLED = parseFloat(list[33])
-    CalliDisplay = parseFloat(list[34])
+    dataPicker = list[32]
+    dataPickerChannel = parseFloat(list[33])
+    status = parseFloat(list[34])
+    CalliLED = parseFloat(list[35])
+    CalliDisplay = parseFloat(list[36])
 }
 let list: string[] = []
 let CalliDisplay = 0
 let CalliLED = 0
 let string = ""
 let status = 0
+let dataPicker = ""
+let dataPickerChannel = 0
 let DataSlot9 = 0
 let DataSlot9Channel = 0
 let DataSlot8 = 0
