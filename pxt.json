@@ -2,7 +2,8 @@
     "name": "zirkuswetter-calliope-relais",
     "description": "",
     "dependencies": {
-        "core": "*"
+        "core": "*",
+        "radio": "*"
     },
     "files": [
         "main.blocks",
